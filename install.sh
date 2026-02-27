@@ -24,7 +24,11 @@ fi
 # Install Starship
 if ! command -v starship &>/dev/null; then
   echo "Installing Starship..."
-  curl -fsSL https://starship.rs/install.sh | sh -s -- --yes
+  if [ "$(id -u)" = "0" ]; then
+    curl -fsSL https://starship.rs/install.sh | sh -s -- --yes
+  else
+    curl -fsSL https://starship.rs/install.sh | sh -s -- --yes --bin-dir "$HOME/.local/bin"
+  fi
 fi
 
 # Install mise

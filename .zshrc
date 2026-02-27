@@ -1,3 +1,6 @@
+# PATH
+export PATH="/usr/local/bin:$HOME/.local/bin:$PATH"
+
 # History
 HISTSIZE=10000
 SAVEHIST=10000
