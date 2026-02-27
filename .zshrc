@@ -15,6 +15,10 @@ autoload -Uz compinit && compinit -u
 # Load aliases
 [ -f ~/.aliases ] && source ~/.aliases
 
+# fzf
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+
 # Load local overrides (not committed to repo)
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 

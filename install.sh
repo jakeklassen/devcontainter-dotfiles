@@ -10,37 +10,8 @@ link() {
   echo "  Linked $1"
 }
 
-# Link dotfiles
 link .zshrc
 link .aliases
 link .gitconfig
-
-# Install zsh if not present
-if ! command -v zsh &>/dev/null; then
-  echo "Installing zsh..."
-  apt-get update -qq && apt-get install -y -qq zsh
-fi
-
-# Install Starship
-if ! command -v starship &>/dev/null; then
-  echo "Installing Starship..."
-  if [ "$(id -u)" = "0" ]; then
-    curl -fsSL https://starship.rs/install.sh | sh -s -- --yes
-  else
-    curl -fsSL https://starship.rs/install.sh | sh -s -- --yes --bin-dir "$HOME/.local/bin"
-  fi
-fi
-
-# Install mise
-if ! command -v mise &>/dev/null; then
-  echo "Installing mise..."
-  MISE_QUIET=1 curl -fsSL https://mise.run | sh
-fi
-
-# Set zsh as default shell for current user
-if [ "$(basename "$SHELL")" != "zsh" ]; then
-  echo "Setting zsh as default shell..."
-  chsh -s "$(which zsh)" 2>/dev/null || echo "  (Could not chsh, you may need to set zsh manually)"
-fi
 
 echo "Done!"
