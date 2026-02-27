@@ -19,3 +19,10 @@ autoload -Uz compinit && compinit
 if command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
 fi
+
+# mise
+if command -v mise &>/dev/null; then
+  eval "$(mise activate zsh)"
+elif [ -f "$HOME/.local/bin/mise" ]; then
+  eval "$($HOME/.local/bin/mise activate zsh)"
+fi
