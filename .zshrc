@@ -1,0 +1,21 @@
+# History
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+
+# Better completion
+autoload -Uz compinit && compinit
+
+# Load aliases
+[ -f ~/.aliases ] && source ~/.aliases
+
+# Load local overrides (not committed to repo)
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+# Starship prompt
+if command -v starship &>/dev/null; then
+  eval "$(starship init zsh)"
+fi
