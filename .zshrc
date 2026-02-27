@@ -7,7 +7,7 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 
 # Better completion
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -u
 
 # Load aliases
 [ -f ~/.aliases ] && source ~/.aliases
